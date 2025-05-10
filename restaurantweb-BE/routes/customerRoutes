@@ -1,0 +1,21 @@
+const express = require('express');
+const router = express.Router();
+const registerController = require('../controllers/registerController'); 
+const loginController = require('../controllers/loginController');       
+const feedbackController = require('../controllers/feedbackController'); 
+const orderController = require('../controllers/orderController');       
+const changePasswordController = require("../controllers/changepasswordController")
+// Đăng ký
+router.post('/register', registerController.register);
+
+// Đăng nhập
+router.post('/login', loginController.login);
+
+// Gửi phản hồi
+router.post('/feedback', feedbackController.sendFeedback); 
+
+// Đặt đơn hàng
+router.post('/order', orderController.placeOrder);       
+//Đổi mật khẩu
+router.post('/changepassword',changePasswordController.changePassword);
+module.exports = router;
